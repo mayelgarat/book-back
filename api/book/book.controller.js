@@ -45,6 +45,7 @@ async function addBook(req, res) {
     res.json(savedBook);
   } catch (err) {
     logger.info(err);
+    res.status(500).send({ err: 'Failed to add book' })
   }
 
 }
