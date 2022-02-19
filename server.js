@@ -41,15 +41,11 @@ const authRoutes = require("./api/auth/auth.routes");
 const bookRoutes = require("./api/book/book.routes");
 
 
-
 // routes
 app.use("/api/auth", authRoutes);
 app.use("/api/book", bookRoutes);
 
 
-
-
-const logger = require("./services/logger.service");
 const port = process.env.PORT || 3030;
 app.get('/**', (req, res) => {
  res.sendFile(path.join(__dirname, 'public', 'index.html'));

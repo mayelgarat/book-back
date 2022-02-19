@@ -14,7 +14,6 @@ connection.connect(err => {
     console.log('connected to SQL server');
 })
 
-
 function runSQL(sqlCommand) {
     return new Promise((resolve, reject) => {
         connection.query(sqlCommand, function (error, results, fields) {
