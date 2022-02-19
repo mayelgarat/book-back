@@ -1,13 +1,6 @@
 const DBService = require('../../services/DBService')
 
 
-function getUsers(criteria = {}) {
-    var namePart = criteria.title || '';
-    var query = `SELECT * FROM user  WHERE user.username LIKE '%${namePart}%' OR user.fullname LIKE '%${namePart}%'`;
-
-    return DBService.runSQL(query)
-}
-
 async function getByUsername(username) {
 
     var query = `SELECT * FROM user WHERE user.username = "${username}"`;
@@ -31,7 +24,7 @@ function add(user) {
 
 
 module.exports = {
-    getUsers,
+
     getByUsername,
     add,
  
