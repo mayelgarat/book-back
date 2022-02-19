@@ -11,25 +11,10 @@ async function getUser(req, res) {
     }
 }
 
-// async function addUser(req, res) {
-//       try {
-//     const newUser = req.body;
-//       const savedUser = await bookService.add(newUser);
-//       res.json(savedUser);
-//     } catch (err) {
-//       logger.info(err);
-//     }
-  
-
-//   }
-
 async function getUsers(req, res) {
     try {
-        const filterBy = {
-            txt: req.query?.txt || '',
-            minBalance: +req.query?.minBalance || 0
-        }
-        const users = await userService.query(filterBy)
+       
+        const users = await userService.query()
         res.send(users)
     } catch (err) {
         logger.error('Failed to get users', err)
@@ -43,7 +28,6 @@ async function getUsers(req, res) {
 
 module.exports = {
     getUser,
-    addUser,
     getUsers,
 
 }
