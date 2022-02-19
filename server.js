@@ -18,6 +18,7 @@ const session = expressSession({
 // Express App Config
 app.use(express.json());
 app.use(session);
+app.use(express.static('public'));
 
 if (process.env.NODE_ENV === "production") {
   // Express serve static files on production environment
@@ -40,20 +41,19 @@ const authRoutes = require("./api/auth/auth.routes");
 const bookRoutes = require("./api/book/book.routes");
 // const userRoutes = require("./api/user/user.routes");
 
-// const { connectSockets } = require("./services/socket.service");
 
 // routes
 app.use("/api/auth", authRoutes);
 app.use("/api/book", bookRoutes);
 // app.use("/api/user", userRoutes);
 
-// connectSockets(http, session);
+
 
 const logger = require("./services/logger.service");
 const port = process.env.PORT || 3030;
-app.get("/**", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-http.listen(port, () => {
-  logger.info(`💞🎀Server listening on port💞🎀 ${port}!`);
+app.get('/**', (req, res) => {
+ res.sendFile(path.join(__dirname, 'public', 'index.html'));
+})
+app.listen(port, () => {
+ console.log(`App listening on port ${port}!`)
 });
