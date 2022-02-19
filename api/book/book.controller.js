@@ -49,21 +49,12 @@ async function addBook(req, res) {
 
 }
 
-async function updateBook(req, res) {
-    try {
-      const newBook = req.body;
-    const updatedBook = await bookService.update(newBook);
-    res.json(updatedBook);
-  } catch (err) {
-    logger.error('Failed to update book', err)
-    res.status(500).send({ err: 'Failed to update book' })
-  }
-}
+
 
 module.exports = {
   getBooks,
   getBookByISBN,
   removeBook,
-  addBook,
-  updateBook,
+  addBook
+
 };

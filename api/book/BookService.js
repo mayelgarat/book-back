@@ -1,10 +1,8 @@
 const DBService = require('../../services/DBService')
 
 
-function query(criteria = {}) {
-    var namePart = criteria.title || '';
-    var query = `SELECT * FROM book  WHERE book.title LIKE '%${namePart}%' OR book.description LIKE '%${namePart}%'`;
-
+function query() {
+    var query = `SELECT * FROM book `;
     return DBService.runSQL(query)
 }
 
@@ -32,20 +30,6 @@ function add(book) {
 }
 
 
-async function update(book) {
-    var query = `UPDATE book set title = "${book.title}",
-                                description = "${book.description}",
-                                price = ${book.price}
-                                author = ${book.author}
-                                genre = ${book.genre}
-                WHERE book._ISBN = ${book.ISBN}`;
-
-    var okPacket = await DBService.runSQL(query);
-    if (okPacket.affectedRows !== 0) return okPacket;
-    throw new Error(`No book updated - book ISBN ${book.ISBN}`);
-}
-
-
 function remove(bookISBN) {
     console.log('bookISBN:', bookISBN);
 
@@ -62,6 +46,5 @@ module.exports = {
     query,
     getByISBN,
     add,
-    update,
     remove
 }
