@@ -7954,3 +7954,8 @@
 19.2.2022, 18:02:59 - INFO - 💞🎀Server listening on port💞🎀 3030!
 19.2.2022, 18:03:19 - INFO - 💞🎀Server listening on port💞🎀 3030!
 19.2.2022, 18:42:29 - DEBUG - auth.service - login with username: mayelgarat
+19.2.2022, 19:22:33 - DEBUG - auth.service - login with username: mayelgarat
+19.2.2022, 19:22:43 - DEBUG - auth.service - signup with username: puki, fullname: Puki
+19.2.2022, 19:22:43 - DEBUG - auth.route - new account created: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":1,"message":"","protocol41":true,"changedRows":0}
+19.2.2022, 19:22:43 - DEBUG - auth.service - login with username: puki
+19.2.2022, 20:41:44 - DEBUG - auth.service - login with username: mayelgarat
